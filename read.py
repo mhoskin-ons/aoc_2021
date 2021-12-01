@@ -5,15 +5,17 @@ Created on Tue Nov 30 14:21:47 2021
 @author: Mike
 """
 
+import os
+
 
 def get_filepath(instance, folder='inputs/', test=False):
     
     if test:
         version = 'test'
     else:
-        version = 'main'
+        version = 'input'
     
-    fp = "{0}day_{1}_{2}.txt".format(folder, instance, version)
+    fp = "D:/aoc_2021/{0}day_{1}_{2}.txt".format(folder, instance, version)
     
     return fp
 
@@ -22,10 +24,10 @@ def read_input(instance,
                strip=True,
                cast_type=None,
                split=None,
-               sort=True,
+               sort=False,
                test=False):
 
-    fp = get_filepath(instance,test)
+    fp = get_filepath(instance, test=test)
     
     with open(fp) as f:
         
