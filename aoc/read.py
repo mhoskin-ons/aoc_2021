@@ -15,7 +15,7 @@ def get_filepath(instance, folder='inputs/', test=False):
     else:
         version = 'input'
     
-    fp = "{0}day_{1}_{2}.txt".format(folder, instance, version)
+    fp = "D:/aoc_2021/aoc/{0}day_{1}_{2}.txt".format(folder, instance, version)
     
     return fp
 
@@ -26,6 +26,33 @@ def read_input(instance,
                split=None,
                sort=False,
                test=False):
+    """
+    
+
+    Parameters
+    ----------
+    instance : int
+        Day to read.
+    clean : Bool, optional
+        Include if want to perform any cleaning. The default is True.
+    strip : Bool, optional
+        Include if need to remove whitespace from end of values using .strip(). 
+        The default is True.
+    cast_type : str, optional
+        Include datatype if need to cast. The default is None.
+    split : str, optional
+        Include if want to split data by a single char. The default is None.
+    sort : Bool, optional
+        Include if want to sort in ascending order. The default is False.
+    test : Bool, optional
+        Include if want to use the test data. The default is False.
+
+    Returns
+    -------
+    clean_data : list
+        Resultant data set.
+
+    """
 
     fp = get_filepath(instance, test=test)
     
