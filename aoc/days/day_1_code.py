@@ -1,4 +1,4 @@
-from read import read_input
+from aoc.read import read_input
 
 
 

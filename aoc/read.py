@@ -15,7 +15,7 @@ def get_filepath(instance, folder='inputs/', test=False):
     else:
         version = 'input'
     
-    fp = "D:/aoc_2021/{0}day_{1}_{2}.txt".format(folder, instance, version)
+    fp = "{0}day_{1}_{2}.txt".format(folder, instance, version)
     
     return fp
 
@@ -53,3 +53,5 @@ def read_input(instance,
             
             
         return clean_data
+    
+    
