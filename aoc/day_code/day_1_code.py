@@ -49,12 +49,12 @@ def day_1(wdw_size = 3):
             inc_count += 1
             
         #used for part 2
-        if idx == 2:
+        if idx == wdw_size-1:
             prev_wdw = sum(data[idx-(wdw_size):idx])
             
             prev_wdw, wdw_count = compare_window(prev_wdw, data, idx, wdw_count)
                     
-        elif idx > 2:
+        elif idx > wdw_size-1:
             prev_wdw, wdw_count = compare_window(prev_wdw, data, idx, wdw_count)
     
     print("Day 1 Part 1: {0}".format(inc_count))
