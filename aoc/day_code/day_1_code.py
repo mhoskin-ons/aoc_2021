@@ -1,10 +1,11 @@
 from aoc.read import read_input
-
+from aoc.utilities import time_wrap
 
 
 def compare_window(prev_wdw, data, idx, wdw_count, wdw_size=3):
     """
-    
+    Compares window against the previous, of size specified.
+    Provides a count of number of windows that summed are larger than prev
 
     Parameters
     ----------
@@ -37,7 +38,8 @@ def compare_window(prev_wdw, data, idx, wdw_count, wdw_size=3):
     return prev_wdw, wdw_count
 
 
-def day_1(wdw_size = 3):
+@time_wrap
+def day(wdw_size = 3):
 
     data = read_input(1, cast_type=int, test=False)
     
@@ -64,7 +66,6 @@ def day_1(wdw_size = 3):
         
         
 
-
 if __name__ == "__main__":
     
-    p1, p2 = day_1()
+    p1, p2 = day()
