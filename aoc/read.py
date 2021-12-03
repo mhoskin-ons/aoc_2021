@@ -25,7 +25,8 @@ def read_input(instance,
                cast_type=None,
                split=None,
                sort=False,
-               test=False):
+               test=False,
+               extra_func=None):
     """
     
 
@@ -46,6 +47,9 @@ def read_input(instance,
         Include if want to sort in ascending order. The default is False.
     test : Bool, optional
         Include if want to use the test data. The default is False.
+    extra_func : str, optional
+        Include if you want to apply an extra function to the raw data. 
+        The default is None.
 
     Returns
     -------
@@ -72,8 +76,13 @@ def read_input(instance,
             if split:
                 clean_data = [d.split(split) for d in clean_data]
                 
+            if extra_func:
+                clean_data = [extra_func(d) for d in clean_data]
+                
             if sort:        
                 clean_data.sort()
+                
+                
                 
         else:
             clean_data = data
