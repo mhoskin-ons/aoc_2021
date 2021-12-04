@@ -54,3 +54,37 @@ def time_wrap(f):
         print('func:{0}, took: {1} sec'.format(f.__name__, te-ts))
         return result
     return wrap
+
+
+def print_blank_days(init, term):
+    """
+    Prints template code for days.py for a range of days
+
+    Parameters
+    ----------
+    init : int
+        First day.
+    term : int
+        Last day (inclusive.
+
+    Effects
+    -------
+    Prints to console commented code to paste into days.py.
+
+    """
+    
+    for day in range(init, term + 1):
+        print_blanks(day)
+        
+        
+def print_blanks(day):
+    """Prints template code for days.py for a given day"""
+    
+    print("""# %% Day {0}
+          
+# import day_code.day_{0}_code as d{0}
+
+# d{0}p1, d{0}p2 = d{0}.day()
+""".format(day))
+
+

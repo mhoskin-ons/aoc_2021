@@ -25,3 +25,14 @@ import day_code.day_3_code as d3
 
 d3p1, d3p2 = d3.day()
 
+# %% Day 4
+
+import day_code.day_4_code as d4
+
+d4p1, d4p2 = d4.day()
+
+# %% Day 3
+
+# import day_code.day_5_code as d5
+
+# d5p1, d5p2 = d5.day()
