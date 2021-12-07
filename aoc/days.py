@@ -31,11 +31,11 @@ import day_code.day_4_code as d4
 
 d4p1, d4p2 = d4.day()
 
-# %% Day 5
+# %% Day 5 #commented out as takes ~10 seconds
 
-import day_code.day_5_code as d5
+# import day_code.day_5_code as d5
 
-d5p1, d5p2 = d5.day()
+# d5p1, d5p2 = d5.day()
 
 # %% Day 6
 
@@ -45,9 +45,9 @@ d6p1, d6p2 = d6.day()
 
 # %% Day 7
 
-# import day_code.day_7_code as d7
+import day_code.day_7_code as d7
 
-# d7p1, d7p2 = d7.day()
+d7p1, d7p2 = d7.day()
 
 # %% Day 8
 
