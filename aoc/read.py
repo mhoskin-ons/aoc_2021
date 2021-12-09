@@ -71,7 +71,7 @@ def read_input(instance,
                 clean_data = [d.strip() for d in clean_data]
             
             if cast_type:
-                clean_data = [int(d) for d in clean_data]
+                clean_data = [cast_type(d) for d in clean_data]
          
             if split:
                 clean_data = [d.split(split) for d in clean_data]
