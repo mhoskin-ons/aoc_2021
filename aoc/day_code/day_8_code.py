@@ -18,37 +18,57 @@ def part_1(data):
     return count
 
 def contains(sub, sup):
+    """ If sub is inside sup, return True """
     
     inc = [s for s in sup if s in sub]
     
     return len(inc) == len(sub)
 
+
+def key_code(keys, n):
+    """ Finds n in the values of dictionary keys, and returns the matching key """
+    
+    return list(keys.keys())[list(keys.values()).index(n)]
+
 def part_2(data):
     """ Returns solution for part 2 """
     
-    sum = 0
+    sum_all = 0
     
     for entry in data:
         keys = {}
         signal = entry[:10]
         output_value = entry[-4:]
         
-        keys[1] = [s for s in signal if len(s) == 2][0]
-        keys[4] = [s for s in signal if len(s) == 4][0]
-        keys[7] = [s for s in signal if len(s) == 3][0]
-        keys[8] = [s for s in signal if len(s) == 7][0]
+        keys[''.join(sorted([s for s in signal if len(s) == 2][0]))] = 1
+        keys[''.join(sorted([s for s in signal if len(s) == 4][0]))] = 4
+        keys[''.join(sorted([s for s in signal if len(s) == 3][0]))] = 7
+        keys[''.join(sorted([s for s in signal if len(s) == 7][0]))] = 8
         
         digits_6 = [s for s in signal if len(s) == 6]
-        keys[9] = [s for s in digits_6 if (contains(keys[4], s))][0]
-        keys[0] = [s for s in digits_6 if (not contains(keys[4], s))][0]
-        keys[6] = [s for s in digits_6 if (s not in keys[0] and s not in keys[9])][0]
+        keys[''.join(sorted([s for s in digits_6 if (contains(key_code(keys, 4), s))][0]))] = 9
+        keys[''.join(sorted([s for s in digits_6 if (not contains(key_code(keys, 4), s) and\
+                                                     contains(key_code(keys, 1),s))][0]))] = 0
+        keys[''.join(sorted([s for s in digits_6 if ''.join(sorted(s)) not in keys.keys()][0]))] = 6
         
         digits_5 = [s for s in signal if len(s) == 5]
-        keys[3] = [s for s in digits_5 if (contains(keys[1], s))][0]
-        keys[5] = [s for s in digits_5 if (contains(s, keys[6]))][0]
-        keys[6] = [s for s in digits_5 if (s not in keys[3] and s not in keys[5])][0]
-    
-    return 2
+        keys[''.join(sorted([s for s in digits_5 if (contains(key_code(keys, 1), s))][0]))] = 3
+        keys[''.join(sorted([s for s in digits_5 if (contains(s, key_code(keys,6)))][0]))] = 5
+        keys[''.join(sorted([s for s in digits_5 if ''.join(sorted(s)) not in keys.keys()][0]))] = 2
+        
+        
+        n = []
+        for ov in output_value:
+            
+            ov = ''.join(sorted(ov))
+            
+            n.append(str(keys[ov]))
+            
+        score = int(''.join(n))
+        
+        sum_all += score
+            
+    return sum_all
 
 @time_wrap
 def day():
