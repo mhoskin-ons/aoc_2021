@@ -63,9 +63,9 @@ d9p1, d9p2 = d9.day()
 
 # %% Day 10
 
-# import day_code.day_10_code as d10
+import day_code.day_10_code as d10
 
-# d10p1, d10p2 = d10.day()
+d10p1, d10p2 = d10.day()
 
 # %% Day 11
 
