@@ -81,9 +81,9 @@ d11p1, d11p2 = d11.day()
 
 # %% Day 13
 
-# import day_code.day_13_code as d13
+import day_code.day_13_code as d13
 
-# d13p1, d13p2 = d13.day()
+d13p1, d13p2 = d13.day()
 
 # %% Day 14
 
