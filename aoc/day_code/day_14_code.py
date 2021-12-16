@@ -36,16 +36,11 @@ def split_data(data):
 def part_1(template, rules, steps=10):
     """ Returns solution for part 1 
     Inefficient solution """
-    
-    
+        
     for step in range(steps):
-        # print(step)
         
         split_template = [template[0]]
         
-        # for idx in range(-2, -len(template) + 1, -1):
-        #     pair = template[idx] + template[idx+1]
-            
         for idx in range(0, len(template)-1):
             pair = template[idx] + template[idx+1]
             inserted = pair[0] + rules[pair] + pair[1]
@@ -70,9 +65,15 @@ def part_2(template, rules, steps=40):
     
     #counts stores pairs of letters, create initial based on template
     counts = {}
+
     for idx in range(0, len(template)-1):
-        counts[template[idx] + template[idx+1]] = 1
-           
+        pair = template[idx] + template[idx+1]
+        if pair in counts.keys():
+            counts[pair] += 1
+        else:
+            counts[pair] = 1
+        
+  
     #make triplets by inserting rule values, split up, and add to counter
     for step in range(steps):
         
@@ -120,7 +121,7 @@ def day():
     template, rules = split_data(data)
 
     p1 = part_1(template, rules)
-    p2 = part_2(template, rules, 40)
+    p2 = part_2(template, rules)
         
     print("Day {0} Part 1: {1}".format(_DAY, p1))
     print("Day {0} Part 2: {1}".format(_DAY, p2))
